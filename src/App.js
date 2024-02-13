@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { React, useRef } from "react";
+import Header from "./Sections/Header";
+import Home from "./Sections/Home";
+import LOC from "./Sections/LOC";
+import SOC from "./Sections/SOC";
+import Registration from "./Sections/Registration";
+import Info from "./Sections/Info";
+import Footer from "./Sections/Footer";
+import ParticipantsList from "./Sections/ParticipantsList";
+import Travel from "./Sections/Travel";
+import Conduct from "./Sections/Conduct";
 
-function App() {
+export default function App() {
+  const privacyDialog = useRef();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Header />
+      <Home />
+      <Info />
+      <Registration privacyDialog={privacyDialog} />
+      <Travel />
+      <ParticipantsList />
+      <SOC />
+      <LOC />
+      <Conduct />
+      <Footer privacyDialog={privacyDialog} />
     </div>
   );
 }
-
-export default App;
